@@ -1,11 +1,7 @@
 /*
 This is a Go program which will create a reverse shell by connecting to a specified address and port. It can be used to create both Windows and Linux reverse shells.
 
-<<<<<<< HEAD
 Usage: Edit line 23 in shell.go to use the IP address and port of your listener. Compile and then execute the program from the target machine to have it establish a session with you.
-=======
-Usage: Edit line 16 in shell.go to speicfy the IP address and port of your listener. Compile and then execute the program from the target machine to have it establish a session with you.
->>>>>>> 52ecce81825685ea9699ceca7ce6b4d805bbe03c
 
 Compiling for Windows: GOOS=windows go build shell.go
 
